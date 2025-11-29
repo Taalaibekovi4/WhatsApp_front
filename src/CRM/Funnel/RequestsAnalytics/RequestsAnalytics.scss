@@ -1,0 +1,88 @@
+@import "../styles/styles.scss";
+
+.req-analytic {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__filters {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background-color: $card;
+    border: 1px solid $border;
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: $text-muted;
+  }
+
+  &__select {
+    border-radius: 999px;
+    border: 1px solid $border;
+    padding: 4px 10px;
+    font-size: 13px;
+    background-color: #ffffff;
+    color: $text-main;
+    font-family: inherit;
+    outline: none;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  &__card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid $border;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &--accept {
+      background-color: $accent-green-soft;
+      border-color: $accent-green;
+    }
+
+    &--refusal {
+      background-color: $accent-red-soft;
+      border-color: $accent-red;
+    }
+
+    &--new {
+      background-color: $accent-soft;
+      border-color: $accent;
+    }
+  }
+
+  &__label {
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__value {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}

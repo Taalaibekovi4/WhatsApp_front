@@ -1,0 +1,91 @@
+.goods-sold {
+  width: 100%;
+
+  &__card {
+    background: #fff;
+    border: 1px solid var(--sb-border);
+    border-radius: 18px;
+    padding: 22px 26px 26px;
+  }
+
+  &__heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--sb-text);
+    margin-bottom: 10px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: var(--sb-text);
+  }
+
+  &__stat {
+    color: var(--sb-muted);
+    font-weight: 500;
+  }
+
+  &__revenue {
+    color: var(--sb-text);
+    font-weight: 700;
+  }
+
+  &__tableWrap {
+    border: 1px solid var(--sb-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+
+    th, td {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14px;
+      color: var(--sb-text);
+    }
+
+    thead th {
+      background: #fff;
+      border-bottom: 1px solid var(--sb-border);
+      font-weight: 700;
+    }
+
+    tbody tr + tr td {
+      border-top: 1px solid #edf0f4;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__qtyPill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: var(--sb-accent-weak);
+    color: var(--sb-text);
+    border-radius: 9999px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  &__loader {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__empty { padding: 22px; color: var(--sb-muted); }
+  &__error { padding: 22px; color: #b91c1c; }
+}

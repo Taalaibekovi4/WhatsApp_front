@@ -1,0 +1,465 @@
+// src/Funnel/LeadsBoard/LeadsBoard.scss
+@import "../styles/styles.scss";
+
+.leads-board {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // фиксируем высоту на экран
+  padding: 24px;
+  box-sizing: border-box;
+  color: $text-main;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  overflow: hidden; // страница не скроллится, только внутри этапов
+
+  /* HEADER */
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__reload {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    background-color: $card;
+    color: $accent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.1s ease,
+      border-color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $accent-soft;
+      border-color: darken($border, 5%);
+      box-shadow: $shadow-soft;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+
+  &__reload-icon {
+    font-size: 16px;
+  }
+
+  &__error {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background-color: $accent-red-soft;
+    color: $accent-red;
+    font-size: 13px;
+    border: 1px solid lighten($accent-red, 25%);
+    flex-shrink: 0;
+  }
+
+  /* FILTERS + SEARCH */
+  &__filters {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background-color: $card;
+    border: 1px solid $border;
+    box-shadow: $shadow-soft;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__filters-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  &__filters-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__filters-icon {
+    font-size: 16px;
+  }
+
+  &__filters-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__select {
+    min-width: 140px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: $text-main;
+    outline: none;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      background-color 0.15s ease;
+
+    &:focus {
+      border-color: $accent;
+      box-shadow: 0 0 0 1px rgba(17, 24, 39, 0.08);
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    background-color: #ffffff;
+  }
+
+  &__search-icon-wrap {
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__search-icon {
+    font-size: 14px;
+    color: $text-muted;
+  }
+
+  &__search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: $text-main;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  /* COLUMNS GRID */
+  &__columns {
+    flex: 1;
+    min-height: 0;    // даём flex'у возможность ужаться
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  &__empty-global {
+    grid-column: 1 / -1;
+    align-self: center;
+    justify-self: center;
+    padding: 22px 16px;
+    border-radius: 14px;
+    background-color: $card;
+    border: 1px dashed $border;
+    color: $text-muted;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: $shadow-soft;
+  }
+
+  /* COLUMN */
+  &__column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0; // критично для внутреннего скролла
+    border-radius: 18px;
+    background-color: $card;
+    border: 1px solid $border;
+    box-shadow: $shadow-soft;
+    overflow: hidden;
+  }
+
+  &__column-header {
+    padding: 12px 14px;
+    border-bottom: 1px solid $border;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__column-title-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  &__column-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__column-count {
+    padding: 1px 8px;
+    border-radius: 999px;
+    background-color: $accent-gray-soft;
+    color: $text-muted;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  &__column-label {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    color: $accent-green;
+    background-color: $accent-green-soft;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ВНУТРЕННИЙ СКРОЛЛ КОНКРЕТНО В ЭТАПЕ */
+  &__column-body {
+    flex: 1;
+    min-height: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    overflow-y: auto;              // <-- скролл внутри этапа
+    scrollbar-width: thin;
+    scrollbar-color: $accent-soft transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent-soft;
+      border-radius: 999px;
+    }
+  }
+
+  &__column-empty {
+    padding: 18px 12px;
+    border-radius: 14px;
+    background-color: $accent-soft;
+    border: 1px dashed $border;
+    text-align: center;
+    color: $text-muted;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  &__column-empty-icon {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  &__column-empty-text {
+    display: block;
+  }
+
+  /* CARDS */
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 4px;
+    flex-shrink: 0;
+  }
+
+  &__card {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid $border;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.1s ease;
+
+    &:hover {
+      background-color: $accent-soft;
+      border-color: darken($border, 6%);
+      transform: translateY(-1px);
+      box-shadow: $shadow-soft;
+    }
+  }
+
+  &__card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__card-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  &__card-icon {
+    font-size: 14px;
+    color: $text-muted;
+  }
+
+  &__card-name,
+  &__card-phone {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+
+  &__card-channel {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: $accent-gray-soft;
+    font-size: 11px;
+    font-weight: 600;
+    color: $text-muted;
+  }
+
+  &__card-date {
+    font-size: 12px;
+    color: $text-muted;
+    white-space: nowrap;
+  }
+
+  &__card-tag-row {
+    margin-top: 2px;
+  }
+
+
+    &__column-body {
+    flex: 1;
+    min-height: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: $accent-soft transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent-soft;
+      border-radius: 999px;
+    }
+  }
+
+  // подсветка колонки, куда можно бросить лид
+  &__column-body--drop-target {
+    background-color: lighten($accent-soft, 6%);
+    outline: 1px dashed $accent;
+    outline-offset: -4px;
+  }
+
+
+  &__card-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: $accent-green-soft;
+    color: $accent-green;
+  }
+
+
+  /* CONTEXT MENU */
+.leads-board__context-menu {
+  position: fixed;
+  z-index: 99999;
+  background: #ffffff;
+  border: 1px solid $border;
+  border-radius: 14px;
+  padding: 6px 0;
+  width: 180px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.leads-board__context-item {
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: $text-main;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.15s;
+
+  &:hover {
+    background: $accent-soft;
+  }
+}
+
+
+}

@@ -1,0 +1,29 @@
+.goods-tabs {
+  padding: 20px 20px 40px;
+
+  &__nav {
+    display: inline-flex;
+    background: #f1f2f4;
+    border-radius: 20px;
+    padding: 4px;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+
+  &__navItem {
+    border: none;
+    background: transparent;
+    padding: 7px 32px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--sb-text);
+    cursor: pointer;
+    transition: background 120ms ease, box-shadow 120ms ease;
+
+    &--active {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(15,23,42,.06);
+    }
+  }
+}

@@ -1,0 +1,262 @@
+@import "../styles/styles.scss";
+
+.leads-analytic {
+  padding: 16px 20px;
+  box-sizing: border-box;
+  background-color: $bg;
+  color: $text-main;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  // занимаем всю высоту родителя
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden; // скролл только у __body
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__filters {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid $border;
+    background-color: $card;
+    box-shadow: $shadow-soft;
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: $text-muted;
+  }
+
+  &__select {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    color: $text-main;
+    padding: 2px 4px;
+    cursor: pointer;
+  }
+
+  &__error {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background-color: $accent-red-soft;
+    color: $accent-red;
+    font-size: 13px;
+    border: 1px solid $accent-red;
+  }
+
+  &__loading {
+    margin-top: 16px;
+    font-size: 14px;
+    color: $text-muted;
+  }
+
+  // ВЕСЬ СКРОЛЛ ТЕПЕРЬ ЗДЕСЬ
+  &__body {
+    margin-top: 8px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 16px;
+
+    scrollbar-width: thin;
+    scrollbar-color: $accent-soft transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent-soft;
+      border-radius: 999px;
+    }
+  }
+
+  &__grid {
+    margin-top: 16px;
+    display: grid;
+    gap: 12px;
+
+    &--top {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+
+  &__card {
+    border-radius: 16px;
+    padding: 12px 14px;
+    background-color: $card;
+    border: 1px solid $border;
+    box-shadow: $shadow-soft;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &--bought {
+      border-color: $accent-green;
+    }
+
+    &--refused {
+      border-color: $accent-red;
+    }
+  }
+
+  &__label {
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__value {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__sections-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  &__section {
+    margin-top: 20px;
+
+    &--card {
+      margin-top: 0;
+      background-color: $card;
+      border-radius: 16px;
+      border: 1px solid $border;
+      box-shadow: $shadow-soft;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--statuses {
+      margin-top: 20px;
+    }
+  }
+
+  &__section-title {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background-color: $card;
+    border: 1px solid $border;
+    box-shadow: $shadow-soft;
+    font-size: 13px;
+    white-space: nowrap;
+
+    &--channel {
+      border-color: $accent;
+    }
+
+    &--client {
+      border-color: $accent-gray;
+    }
+
+    &--sport {
+      border-color: $accent-soft;
+    }
+
+    &--trainer {
+      border-color: $accent-gray;
+    }
+
+    &--pretrial {
+      border-color: $accent-soft;
+    }
+
+    &--trial {
+      border-color: $accent-green;
+    }
+
+    &--result {
+      border-color: $accent-red;
+    }
+  }
+
+  &__chip-value {
+    font-weight: 700;
+  }
+
+  &__empty-text {
+    font-size: 13px;
+    color: $text-muted;
+  }
+
+  &__status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  &__status-column {
+    background-color: $card;
+    border-radius: 16px;
+    border: 1px solid $border;
+    padding: 10px 12px;
+    box-shadow: $shadow-soft;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__status-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

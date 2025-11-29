@@ -1,0 +1,29 @@
+.products-tabs {
+  padding: 20px 20px 40px;
+
+  &__nav {
+    display: inline-flex;
+    background: #f1f2f4;
+    border-radius: 20px;
+    gap: 0;
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+
+  &__nav-item {
+    border: none;
+    background: transparent;
+    padding: 7px 32px;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0f172a;
+    cursor: pointer;
+    transition: background 120ms ease;
+
+    &--active {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+    }
+  }
+}

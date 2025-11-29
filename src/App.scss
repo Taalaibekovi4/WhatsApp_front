@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+:root {
+  --sb-bg: #ffffff;
+  --sb-surface: #f6f7f8;
+  --sb-text: #111827;
+  --sb-muted: #6b7280;
+  --sb-border: #e5e7eb;
+  --sb-accent: #de1313;
+  --sb-accent-weak: #ecfdf5;
+  --sb-hover: #f3f4f6;
+}

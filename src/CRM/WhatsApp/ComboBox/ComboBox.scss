@@ -1,0 +1,15 @@
+/* src/components/ComboBox/ComboBox.scss */
+.combo-box{
+  position:relative; flex:1;
+  &__field{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid #374148; background:#111b21; color:var(--text);
+  }
+  &__menu{
+    position:absolute; top:100%; left:0; right:0;
+    background:#0d1418; border:1px solid #1a232a; border-radius:10px; margin-top:6px;
+    max-height:220px; overflow:auto; z-index:10;
+  }
+  &__item{ padding:10px 12px; cursor:pointer; }
+  &__item--active, &__item:hover{ background:#152129; }
+  &__empty{ padding:10px 12px; color:var(--muted); }
+}

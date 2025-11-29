@@ -1,0 +1,312 @@
+.clients-add {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  /* верхняя часть: заголовок + менеджер */
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--sb-text);
+    margin-bottom: 4px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    color: var(--sb-muted);
+  }
+
+  &__manager {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  &__manager-label {
+    color: var(--sb-muted);
+  }
+
+  &__manager-name {
+    font-weight: 600;
+    color: var(--sb-text);
+  }
+
+  /* алёрты */
+  &__alert {
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 14px;
+
+    &--error {
+      background: rgba(248, 113, 113, 0.08);
+      color: #b91c1c;
+      border: 1px solid rgba(248, 113, 113, 0.22);
+    }
+
+    &--success {
+      background: rgba(22, 163, 74, 0.08);
+      color: #15803d;
+      border: 1px solid rgba(22, 163, 74, 0.22);
+    }
+  }
+
+  /* сетка формы */
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sb-text);
+  }
+
+  &__input,
+  &__select,
+  &__combo-input {
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--sb-border);
+    background: #f3f4f6;
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--sb-text);
+    outline: none;
+    transition: border-color 120ms ease, background 120ms ease;
+
+    &::placeholder {
+      color: var(--sb-muted);
+      opacity: 0.9;
+    }
+
+    &:focus {
+      border-color: var(--sb-accent);
+      background: #ffffff;
+    }
+  }
+
+  &__input--error {
+    border-color: #ef4444;
+    background: #fff5f5;
+  }
+
+  &__textarea {
+    min-height: 90px;
+    border-radius: 12px;
+    border: 1px solid var(--sb-border);
+    background: #f3f4f6;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--sb-text);
+    outline: none;
+    resize: vertical;
+    transition: border-color 120ms ease, background 120ms ease;
+
+    &::placeholder {
+      color: var(--sb-muted);
+    }
+
+    &:focus {
+      border-color: var(--sb-accent);
+      background: #ffffff;
+    }
+  }
+
+  /* ===== комбобокс спорт/тренер ===== */
+  &__combo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    border: 1px solid var(--sb-border);
+    background: #f3f4f6;
+    padding-right: 34px;
+    transition: border-color 120ms ease, background 120ms ease;
+
+    &--disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    &:focus-within {
+      border-color: var(--sb-accent);
+      background: #ffffff;
+    }
+  }
+
+  &__combo-input {
+    border: none;
+    background: transparent;
+    padding-right: 0;
+  }
+
+  &__combo-toggle {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--sb-muted);
+    display: grid;
+    place-items: center;
+  }
+
+  &__combo-popover {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 30;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--sb-border);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    max-height: 220px;
+    overflow: hidden;
+  }
+
+  &__combo-list {
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  &__combo-item {
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--sb-hover);
+    }
+  }
+
+  &__combo-item--active {
+    background: var(--sb-hover);
+  }
+
+  &__combo-empty {
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--sb-muted);
+  }
+
+  /* нижняя часть: итог + кнопка */
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  &__total-line {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  &__total-label {
+    color: var(--sb-muted);
+  }
+
+  &__total-value {
+    font-weight: 600;
+    color: var(--sb-text);
+  }
+
+  &__submit {
+    min-width: 150px;
+    height: 44px;
+    border-radius: 12px;
+    border: none;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--sb-accent);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 120ms ease, filter 120ms ease;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    &:not(:disabled):hover {
+      filter: brightness(0.95);
+    }
+  }
+
+  &__spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-top-color: #ffffff;
+    animation: clients-add-spin 0.8s linear infinite;
+  }
+
+  @media (max-width: 900px) {
+    &__row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__submit {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes clients-add-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

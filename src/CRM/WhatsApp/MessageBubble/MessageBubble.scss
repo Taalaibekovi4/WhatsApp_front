@@ -1,0 +1,16 @@
+.thread{ &__row{ display:flex; margin:6px 0; } &__row--in{ justify-content:flex-start; } &__row--out{ justify-content:flex-end; } }
+.message-bubble{
+  max-width:70%; padding:8px 10px; border-radius:10px; position:relative; background:var(--in); color:var(--text); box-shadow:0 1px 0 rgba(0,0,0,.2);
+  .thread__row--out &{ background:var(--out); }
+  &--sel{ outline:2px solid var(--accent-2); }
+  &--active{ box-shadow:0 0 0 2px rgba(6,207,156,.35) inset; }
+  &__sender{ font-size:12px; color:#b7d5ff; margin-bottom:4px; }
+  &__quote{ border-left:3px solid rgba(255,255,255,.3); padding-left:8px; margin-bottom:6px; opacity:.9; font-size:12px; }
+  &__media img, &__media video{ max-width:480px; border-radius:8px; display:block; }
+  &__time{ font-size:11px; opacity:.7; margin-top:4px; text-align:right; }
+  &__mark{ background:rgba(255,255,0,.35); padding:0 2px; border-radius:3px; }
+  &__mark--active{ background:rgba(6,207,156,.35); }
+  &__text{ white-space:pre-wrap; word-break:break-word; overflow-wrap:anywhere; }
+  &__btn{ display:inline-block; background:#0f1c21; color:var(--text); border:1px solid #1a232a; border-radius:8px; padding:8px 10px; text-decoration:none; }
+  &__btn:hover{ background:#152129; }
+}

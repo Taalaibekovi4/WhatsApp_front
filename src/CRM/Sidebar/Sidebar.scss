@@ -1,0 +1,118 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+
+  width: 260px;
+  height: 100vh;            /* фиксированная высота экрана */
+  flex-shrink: 0;           /* не сжимается при скролле контента */
+
+  background: #fff;
+  border-right: 1px solid var(--sb-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 16px;
+  overflow-y: auto;         /* если пунктов много — скролл внутри сайдбара */
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: left;
+    color: var(--sb-text);
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease;
+
+    &:hover {
+      background: var(--sb-hover);
+    }
+
+    &--active {
+      background: var(--sb-hover);
+      border-color: var(--sb-border);
+      font-weight: 600;
+    }
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: var(--sb-text);
+  }
+
+  &__bottom {
+    border-top: 1px solid var(--sb-border);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sb-accent);
+    color: #fff;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sb-text);
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sb-accent);
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: opacity 120ms ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__logoutIcon {
+    font-size: 18px;
+  }
+
+  @media (max-width: 960px) {
+    width: 220px;
+    padding: 16px 12px;
+  }
+}

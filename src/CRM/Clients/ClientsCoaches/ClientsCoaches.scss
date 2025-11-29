@@ -1,0 +1,155 @@
+/* src/components/AdminManager/ClientsCoaches/ClientsCoaches.scss */
+
+.clients-coaches {
+  padding: 8px 0 0;
+  color: var(--sb-text);
+
+  &__title {
+    display: inline-block;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  &__filters {
+    margin-bottom: 12px;
+  }
+
+  /* поиск по тренеру */
+  &__search {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--sb-border);
+    border-radius: 10px;
+    background: var(--sb-hover);
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--sb-text);
+
+    &::placeholder {
+      color: var(--sb-muted);
+    }
+
+    &:focus {
+      outline: none;
+      background: #fff;
+      box-shadow: 0 0 0 3px var(--sb-accent-weak);
+    }
+  }
+
+  /* состояния */
+  &__spinner {
+    padding: 14px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 3px solid var(--sb-border);
+      border-top-color: var(--sb-accent);
+      animation: clients-coaches-spin 0.9s linear infinite;
+    }
+  }
+
+  &__error {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #7f1d1d;
+  }
+
+  /* таблица */
+  &__tableWrap {
+    margin-top: 6px;
+    border: 1px solid var(--sb-border);
+    border-radius: 10px;
+    background: #fff;
+    overflow: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 12px;
+      color: var(--sb-text);
+      background: #fff;
+      border-bottom: 1px solid var(--sb-border);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      font-size: 14px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--sb-border);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background: var(--sb-hover);
+    }
+  }
+
+  /* колонки */
+  &__count {
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* пагинация */
+  &__pagination {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__page-btn {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--sb-border);
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+
+    &.is-active {
+      border-color: var(--sb-accent);
+      box-shadow: 0 0 0 3px var(--sb-accent-weak);
+      font-weight: 600;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__page-info {
+    color: var(--sb-muted);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+}
+
+@keyframes clients-coaches-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,102 @@
+.products-sold {
+  width: 100%;
+
+  &__card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 22px 26px 26px;
+  }
+
+  &__heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f766e;
+    margin-bottom: 10px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #111827;
+  }
+
+  &__link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #2563eb;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  &__revenue {
+    color: #15803d;
+    font-weight: 500;
+  }
+
+  &__table-wrap {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+
+    th,
+    td {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    tbody tr + tr td {
+      border-top: 1px solid #edf0f4;
+    }
+  }
+
+  &__price {
+    color: #15803d;
+    font-weight: 500;
+  }
+
+  &__qty-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 16px;
+    background: #dbeafe;
+    color: #0f172a;
+    border-radius: 9999px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  &__loader {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__empty {
+    padding: 22px;
+  }
+
+  &__error {
+    padding: 22px;
+    color: #b91c1c;
+  }
+}

@@ -1,0 +1,126 @@
+/* Цвета из :root (AppTheme.css) */
+.clients-daily {
+  padding: 8px 0 0;
+  color: var(--sb-text);
+
+  &__title {
+    display: inline-block;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  &__filters {
+    margin-bottom: 12px;
+  }
+
+  /* Поиск, 100% ширины */
+  &__search {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--sb-border);
+    border-radius: 10px;
+    background: var(--sb-hover);
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--sb-text);
+
+    &::placeholder { color: var(--sb-muted); }
+    &:focus { outline: none; background: #fff; box-shadow: 0 0 0 3px var(--sb-accent-weak); }
+  }
+
+  /* Баннера/лоадер */
+  &__banner {
+    margin: 10px 0 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    border: 1px solid transparent;
+
+    &--error { background: #fff1f2; border-color: #fecdd3; color: #7f1d1d; }
+    &--success { background: var(--sb-accent-weak); border-color: #a7f3d0; color: #065f46; }
+  }
+
+  &__spinner { display: inline-flex; align-items: center; color: var(--sb-muted); padding: 12px 0; }
+  &__spinner .spin { animation: spin 1s linear infinite; font-size: 18px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  &__hint, &__empty { color: var(--sb-muted); font-size: 14px; margin-top: 6px; }
+
+  /* Таблица */
+  &__tableWrap { margin-top: 6px; }
+  &__tableContainer { overflow: auto; border: 1px solid var(--sb-border); border-radius: 10px; background: #fff; }
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead th {
+      position: sticky; top: 0; z-index: 1;
+      text-align: left;
+      font-weight: 600; font-size: 14px;
+      padding: 10px 12px; /* компактно */
+      color: var(--sb-text); background: #fff;
+      border-bottom: 1px solid var(--sb-border);
+    }
+
+    tbody td {
+      font-size: 14px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--sb-border);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    tbody tr:hover { background: var(--sb-hover); }
+  }
+
+  &__thAction { width: 340px; }
+
+  &__rowUnpaid td { color: #9b1c1c; }
+
+  &__colName { min-width: 220px; }
+  &__colMonth { width: 120px; }
+  &__colDate { width: 140px; }
+
+  &__price { font-weight: 600; }
+
+  /* Действие */
+  &__colAction { display: flex; align-items: center; gap: 8px; }
+
+  &__inlineAmount {
+    width: 170px; height: 36px;
+    border: 1px solid var(--sb-border); background: var(--sb-hover);
+    border-radius: 10px; padding: 0 12px; font-size: 14px; outline: none;
+
+    &::placeholder { color: var(--sb-muted); }
+  }
+
+  &__btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 36px; padding: 0 14px;
+    border: 1px solid var(--sb-accent); background: var(--sb-accent);
+    color: #fff; font-weight: 600; border-radius: 10px;
+    cursor: pointer; transition: transform .02s ease-in;
+
+    &:hover { filter: brightness(0.98); }
+    &:active { transform: translateY(1px); }
+    &:disabled { opacity: .5; cursor: default; }
+  }
+
+  &__btnWait { letter-spacing: 1px; }
+
+  /* Пагинация */
+  &__pagination { display: flex; gap: 6px; align-items: center; margin-top: 10px; }
+
+  &__pageBtn {
+    min-width: 32px; height: 32px;
+    border-radius: 8px; border: 1px solid var(--sb-border);
+    background: #fff; cursor: pointer;
+
+    &.is-active { border-color: var(--sb-accent); box-shadow: 0 0 0 3px var(--sb-accent-weak); }
+    &:disabled { opacity: .5; cursor: default; }
+  }
+
+  &__pageInfo { color: var(--sb-muted); font-size: 12px; margin-left: 6px; }
+}

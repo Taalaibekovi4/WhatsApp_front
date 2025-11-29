@@ -1,0 +1,28 @@
+/* src/CRM/Crm.scss */
+.crm {
+    min-height: 100vh;
+  display: flex;
+  background: var(--sb-surface);
+  color: var(--sb-text);
+
+  &__main {
+    flex: 1;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--sb-text);
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: 220px 1fr;
+
+    &__main {
+      padding: 20px;
+    }
+  }
+}
